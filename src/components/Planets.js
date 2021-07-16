@@ -1,9 +1,10 @@
+import axios from 'axios';
 import React from 'react'
 import { useQuery } from 'react-query'
 
 const fetchPlanets = async () => {
-    const res = await fetch('http://swapi.dev/api/planets/');
-    return res.json();
+    const res = await axios.get('http://swapi.dev/api/planets/');
+    return res;
 }
 
 
@@ -14,6 +15,7 @@ const Planets = () => {
         <div>
            <h2>Planets</h2>
            <p>{status}</p>
+           <p>{data?.results}</p>
         </div>
     )
 }
